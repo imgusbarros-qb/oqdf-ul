@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OQDF-UL Schema",
+  "description": "Open Quantum Data Format — Unlimited Layers (OQDF-UL) specification schema.",
+  "type": "object",
+
+  "required": ["version", "metadata", "classical_source", "quantum_space", "feature_map", "operations"],
+
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "OQDF-UL file version."
+    },
+
+    "metadata": {
+      "type": "object",
+      "required": ["author", "created", "dataset_name"],
+      "properties": {
+        "author": { "type": "string" },
+        "created": { "type": "string", "format": "date" },
+        "dataset_name": { "type": "string" },
+        "description": { "type": "string" },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+
+    "classical_source": {
+      "type": "string",
+      "description": "Path or file name of the classical dataset."
+    },
+
+    "quantum_space": {
+      "type": "object",
+      "required": ["num_qubits", "dimensions", "normalization"],
+      "properties": {
+        "num_qubits": { "type": "integer", "minimum": 1 },
+        "dimensions": { "type": "integer", "minimum": 2 },
+        "normalization": {
+          "type": "string",
+          "enum": ["L2", "min-max", "none"]
+        },
+        "layers": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of amplitude/phase layers."
+        }
+      }
+    },
+
+    "feature_map": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "encoding"],
+        "properties": {
+          "name": { "type": "string" },
+
+          "encoding": {
+            "type": "string",
+            "enum": [
+              "amplitude",
+              "phase",
+              "categorical_phase",
+              "layered",
+              "custom"
+            ]
+          },
+
+          "range": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 2,
+            "maxItems": 2
+          },
+
+          "mapping": {
+            "type": "object",
+            "additionalProperties": { "type": "number" }
+          },
+
+          "scale_factor": { "type": "number" },
+          "phase_factor": { "type": "number" },
+
+          "layer_rules": {
+            "type": "object",
+            "description": "Optional mapping rules for custom or layered encoding."
+          }
+        }
+      }
+    },
+
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "prepare_state",
+              "attach_layer",
+              "apply_rule",
+              "custom_operation"
+            ]
+          },
+          "target": { "type": "string" },
+          "parameters": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  }
+}

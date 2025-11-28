@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "author": "Agustín Rodrigues De Barros",
+    "created": "2025-11-08",
+    "dataset_name": "sample_energy_forecast",
+    "description": "Example dataset encoded into OQDF-UL. Includes layered amplitudes and categorical phases.",
+    "tags": ["energy", "forecast", "quantum", "encoding"]
+  },
+
+  "classical_source": "example_dataset.csv",
+
+  "quantum_space": {
+    "num_qubits": 5,
+    "dimensions": 32,
+    "normalization": "L2",
+    "layers": 2
+  },
+
+  "feature_map": [
+    {
+      "name": "temperature",
+      "encoding": "amplitude",
+      "range": [-10, 45],
+      "scale_factor": 0.55
+    },
+    {
+      "name": "humidity",
+      "encoding": "amplitude",
+      "range": [0, 100],
+      "scale_factor": 0.33
+    },
+    {
+      "name": "weather",
+      "encoding": "categorical_phase",
+      "mapping": {
+        "sunny": 0.0,
+        "cloudy": 1.2,
+        "rain": 2.4
+      }
+    },
+    {
+      "name": "day_of_week",
+      "encoding": "phase",
+      "phase_factor": 0.15
+    }
+  ],
+
+  "operations": [
+    {
+      "type": "prepare_state",
+      "target": "ψ0",
+      "parameters": {
+        "normalization": "L2"
+      }
+    },
+    {
+      "type": "attach_layer",
+      "parameters": {
+        "layer": 2,
+        "method": "phase_overlay"
+      }
+    }
+  ]
+}
