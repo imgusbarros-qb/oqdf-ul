@@ -1,0 +1,5 @@
+OQDF-UL: Open Quantum Data Format — Unlimited Layers
+Copyright 2025 Agustín Rodrigues De Barros
+
+This product includes software and documentation licensed under the 
+Apache License, Version 2.0.
