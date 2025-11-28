@@ -1,3 +1,27 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/imgusbarros-qb/oqdf-ul/main/docs/banner.png" width="650" />
+</p>
+
+# OQDF-UL  
+### **Open Quantum Data Format — Unlimited Layers**
+
+**Version:** 1.0.0  
+**License:** Apache 2.0  
+**Status:** Public Standard — Initial Release  
+
+OQDF-UL is a hardware-neutral, quantum-ready data format that defines how classical datasets can be represented, structured, and prepared for quantum algorithms using amplitudes, phases, and multilayer encoding.
+
+It acts as an **input abstraction layer**, sitting *above* OpenQASM and QIR, enabling quantum pipelines to receive complex datasets in a structured, portable, scalable format.
+
+This repository contains:
+- the official specification (`spec/`)
+- schema validation (`schema/`)
+- examples (`examples/`)
+- tools (`tools/`)
+- release materials (`docs/`)
+- encoder stub demonstrating usage  
+
+
 # oqdf-ul
 Open Quantum Data Format — Unlimited Layers (OQDF-UL). A hardware-neutral quantum data abstraction standard.
 
@@ -56,6 +80,8 @@ oqdf-ul/
 ├── LICENSE
 ├── NOTICE
 ├── README.md
+├── CONTRIBUTING.md
+├── CHANGELOG.md
 └── PUBLISHING-GUIDE.md
 
 ***Quick Start
