@@ -59,30 +59,29 @@ Future-proof for quantum RAM and photonic storage
 ***Repository Structure
 
 oqdf-ul/
-│
-├── schema/
-│   └── OQDF-UL.schema.json
-│
-├── spec/
-│   └── OQDF-UL-spec.md
-│
-├── examples/
-│   ├── OQDF-UL-example.json
-│   └── example_dataset.csv
-│
-├── docs/
-│   ├── WHITEPAPER.md
-│   └── WHITEPAPER.pdf  (generated after release)
-│
-├── tools/
-│   └── oqdf_ul_encoder_stub.py
-│
-├── LICENSE
-├── NOTICE
-├── README.md
-├── CONTRIBUTING.md
-├── CHANGELOG.md
-└── PUBLISHING-GUIDE.md
+  schema/
+    OQDF-UL.schema.json
+
+  spec/
+    OQDF-UL-spec.md
+
+  examples/
+    OQDF-UL-example.json
+    example_dataset.csv
+
+  docs/
+    WHITEPAPER.md
+    WHITEPAPER.pdf (generated after release)
+
+  tools/
+    oqdf_ul_encoder_stub.py
+
+LICENSE
+NOTICE
+README.md
+CONTRIBUTING.md
+CHANGELOG.md
+PUBLISHING-GUIDE.md
 
 
 ***Quick Start
