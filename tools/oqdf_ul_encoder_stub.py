@@ -21,7 +21,7 @@ def validate_oQDF(data):
         validate(instance=data, schema=schema)
         print("✔ Schema validation: OK")
     except ValidationError as e:
-        print("❌ Schema validation failed:")
+        print("Schema validation failed:")
         print(e)
         exit(1)
 
