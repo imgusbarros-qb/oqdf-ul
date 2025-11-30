@@ -29,7 +29,7 @@ def build_blueprint(oqdf, df):
     rows = len(df)
     qubits = infer_qubits(rows)
 
-    print("\n🔷 Quantum Blueprint Summary")
+    print("\n  Quantum Blueprint Summary")
     print("----------------------------")
     print(f"Rows in dataset      : {rows}")
     print(f"Inferred qubits      : {qubits}")
@@ -39,7 +39,7 @@ def build_blueprint(oqdf, df):
     for f in oqdf["feature_map"]:
         print(f"  - {f['name']} → {f['encoding']}")
 
-    print("\n🔷 State vector size:", 2 ** qubits)
+    print("\n  State vector size:", 2 ** qubits)
     print("\nBlueprint generation completed.\n")
 
 def main():
