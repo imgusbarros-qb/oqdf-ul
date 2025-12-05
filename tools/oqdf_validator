@@ -1,0 +1,33 @@
+import json
+import sys
+
+REQUIRED_FIELDS = [
+    "oqdf_ul_version",
+    "metadata",
+    "classical_input",
+    "quantum_encoding",
+    "quantum_goal"
+]
+
+def validate(path):
+    try:
+        with open(path, "r") as f:
+            data = json.load(f)
+    except Exception as e:
+        print(f"Error reading JSON: {e}")
+        sys.exit(1)
+
+    missing = [m for m in REQUIRED_FIELDS if m not in data]
+
+    if missing:
+        print("Invalid OQDF-UL file. Missing:")
+        for m in missing:
+            print(" -", m)
+    else:
+        print("Valid OQDF-UL document.")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python oqdf_validator.py <file.json>")
+        sys.exit(0)
+    validate(sys.argv[1])
