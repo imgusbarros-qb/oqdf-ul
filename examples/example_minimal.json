@@ -1,0 +1,19 @@
+{
+  "oqdf_ul_version": "1.0",
+  "metadata": {
+    "title": "Minimal OQDF-UL Example",
+    "description": "A tiny example showing the smallest valid OQDF-UL document.",
+    "author": "Agustín Rodrigues De Barros"
+  },
+  "classical_input": {
+    "dataset_name": "tiny_vector",
+    "values": [0.25, 0.75]
+  },
+  "quantum_encoding": {
+    "method": "amplitude",
+    "auto_compute_qubits": true
+  },
+  "quantum_goal": {
+    "task": "prepare_state"
+  }
+}
